@@ -20,6 +20,8 @@ module Helloworld
 
       # Sends a greeting
       rpc :SayHello, HelloRequest, HelloReply
+      # Sends another greeting
+      rpc :SayHelloAgain, HelloRequest, HelloReply
     end
 
     Stub = Service.rpc_stub_class
