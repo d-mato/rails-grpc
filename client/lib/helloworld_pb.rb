@@ -5,14 +5,16 @@ require 'google/protobuf'
 
 Google::Protobuf::DescriptorPool.generated_pool.build do
   add_file("helloworld.proto", :syntax => :proto3) do
-    add_message "HelloRequest" do
+    add_message "helloworld.HelloRequest" do
       optional :name, :string, 1
     end
-    add_message "HelloReply" do
+    add_message "helloworld.HelloReply" do
       optional :message, :string, 1
     end
   end
 end
 
-HelloRequest = Google::Protobuf::DescriptorPool.generated_pool.lookup("HelloRequest").msgclass
-HelloReply = Google::Protobuf::DescriptorPool.generated_pool.lookup("HelloReply").msgclass
+module Helloworld
+  HelloRequest = Google::Protobuf::DescriptorPool.generated_pool.lookup("helloworld.HelloRequest").msgclass
+  HelloReply = Google::Protobuf::DescriptorPool.generated_pool.lookup("helloworld.HelloReply").msgclass
+end
