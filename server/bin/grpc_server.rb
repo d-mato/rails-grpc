@@ -1,10 +1,12 @@
-$LOAD_PATH.push('./lib')
+#!/usr/bin/env ruby
 
+load 'config/environment.rb'
 require 'helloworld_services_pb'
 
 class GreeterServer < Helloworld::Greeter::Service
 
   def say_hello(hello_req, _unused_call)
+    p Rails
     Helloworld::HelloReply.new(message: "Hello #{hello_req.name}")
   end
 

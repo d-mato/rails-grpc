@@ -1,5 +1,5 @@
-$LOAD_PATH.push('./lib')
-
+$: << './lib'
+require 'bundler/setup'
 require 'helloworld_services_pb'
 
 stub = Helloworld::Greeter::Stub.new('localhost:50051', :this_channel_is_insecure)
